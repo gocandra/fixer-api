@@ -1,0 +1,12 @@
+src
+__mocks__
+test
+.eslintignore
+.eslintrc.js
+.prettierrc.yaml
+.prettierrc.yml
+.prettierignore
+tsconfig.json
+babel.config.js
+.github/*
+.autorc

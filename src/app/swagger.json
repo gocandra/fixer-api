@@ -1,0 +1,183 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Patient service",
+    "description": "Document today, for tomorrow"
+  },
+  "servers": [
+    {
+      "url": "localHost:8080/",
+      "description": "Local Development"
+    },
+    {
+      "url": "gcp.patient-service/",
+      "description": "With docker-compose and nginx proxy"
+    }
+  ],
+  "tags": [
+    {
+      "name": "patients",
+      "description": "patient controllers"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/patients": {
+     "post": {
+        "tags": [
+          "patients"
+        ],
+        "summary": "Create a new Patient",
+        "requestBody": {
+          "description": "Patient Object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/Patient"
+              }
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/id"
+            }
+          },
+          "400": {
+            "description": "Failed. Bad post data."
+          }
+        }
+      }
+    },
+    "/patients/{uid}": {
+      "parameters": [
+        {
+          "name": "uid",
+          "in": "path",
+          "required": true,
+          "description": "ID of the Patient that we want to match",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "patients"
+        ],
+        "summary": "Get Patient with given ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "description": "Patient with id",
+            "schema": {
+              "$ref": "#/definitions/id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Patient"
+            }
+          },
+          "404": {
+            "description": "Failed. Patient not found."
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update Patient with given ID",
+        "tags": [
+          "patients"
+        ],
+        "requestBody": {
+          "description": "Patient Object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/Patient"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "uid",
+            "required": true,
+            "description": "Patient with new values of properties",
+            "schema": {
+              "$ref": "#/definitions/id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Patient"
+            }
+          },
+          "400": {
+            "description": "Failed. Bad post data."
+          },
+          "404": {
+            "description": "Failed. Patient not found."
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "id": {
+      "properties": {
+        "uuid": {
+          "type": "string"
+        }
+      }
+    },
+    "Patient": {
+      "type": "object",
+      "properties": {
+        "genus": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "isHungry": {
+          "type": "boolean"
+        },
+        "lastFedDate": {
+          "type": "string"
+        }
+      }
+    },
+    "patients": {
+      "type": "object",
+      "properties": {
+        "patients": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/Patient"
+          }
+        }
+      }
+    }
+  }
+}

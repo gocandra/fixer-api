@@ -1,0 +1,26 @@
+{
+	"env": {
+		"amd": true,
+		"node": true
+	},
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"plugins": [ "@typescript-eslint" ],
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended"
+	],
+	"rules": {
+		"no-console": 0,
+		"no-unused-vars": "off",
+		"@typescript-eslint/no-explicit-any": "off",
+		"@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-unused-vars": ["error"],
+		"no-eval": 1,
+		"indent": ["error", 2],
+		"no-var": 1,
+		"spaced-comment": ["error", "always"],
+		"semi": [2, "never"]
+	  }
+}

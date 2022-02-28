@@ -1,0 +1,12 @@
+.github/
+.husky/
+node_modules/
+tests/
+.eslintrc.js
+.gitignore
+cloudbuild.yaml
+Dockerfile
+README.md
+dist/
+npm-debug.log
+logs
