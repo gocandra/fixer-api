@@ -3,6 +3,7 @@ export type IAppSettings = {
 	environment: string;
 	ServerRoot: string;
 	ServerPort: number;
+	ServerHost: string;
 	ServerOrigins: string;
 	projectId: string;
 	serviceName: string;
@@ -12,6 +13,7 @@ export default class AppSettings {
   static environment: string;
   static ServerRoot: string;
   static ServerPort: number;
+  static ServerHost: string;
   static ServerOrigins: string;
   static projectId: string;
   static serviceName: string;
@@ -21,6 +23,7 @@ export default class AppSettings {
     this.DefaultLang = config.params.DefaultLang
     this.environment = config.server.Environment
     this.ServerRoot = config.server.Root
+    this.ServerHost = config.server.Host
     this.ServerPort = config.server.Port
     this.ServerOrigins = config.server.Origins
     this.projectId = config.projectId

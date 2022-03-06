@@ -1,1 +1,1 @@
-export { CreateRateUseCase } from "./CreateRate"
+export { GetRateUseCase } from "./GetRate"

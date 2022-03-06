@@ -1,7 +1,9 @@
-import { CreateRate } from "../../../domain/useCases/fixer";
+import { GetRateUseCase } from "../../../domain/useCases/rates"
+import RatesFixer from "../../../providers/rates/RatesFixer"
+import { RateRepository } from "../../../wouldBeModules/mongodb-module/rates/"
 
-const CreateRateUseCase = new CreateRate()
+const GetRate = new GetRateUseCase(RateRepository, RatesFixer)
 
 export { 
-  CreateRateUseCase
+  GetRate
 }

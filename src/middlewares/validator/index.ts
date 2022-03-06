@@ -44,7 +44,6 @@ class Validator {
     /* Add errors to error object */
     if (!isValid) {
       validationErrors["error"] = validateFunction.errors
-      console.log(validateFunction.errors)
       throw new ValidationError(validationErrors)
     }
 

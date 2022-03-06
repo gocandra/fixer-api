@@ -1,7 +1,7 @@
 import { Server, createServer } from "http"
 import AppWrapper from "../AppWrapper"
-import { IAppSettings } from "app/AppSettings"
-import { logger } from "../../services/logging"
+import { IAppSettings } from "../AppSettings"
+import logger from "../../shared/logger"
 
 export class HttpServer {
   #appWrapper: AppWrapper;

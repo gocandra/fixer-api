@@ -4,7 +4,7 @@ import { Request, Response, NextFunction } from "../../app/core/Modules"
 import resources from "../../shared/locals/messages"
 import { Result } from "result-tsk"
 import config from "../../app/config"
-import { logger } from "../../services/logging"
+import logger from "../../shared/logger"
 
 export class ErrorHandlerMiddleware {
   handle(err: ApplicationError, req: Request, res: Response, next: NextFunction): void {
